@@ -1,6 +1,7 @@
-package com.edn.JUnitTestSamples.model;
+package com.edn.JUnitWithMocks.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,9 +9,17 @@ public class Leilao {
 
 	private String descricao;
 	private List<Lance> lances;
+	private Calendar data;
+	private boolean encerrado;
+	private int id;
 
 	public Leilao(String descricao) {
+		this(descricao, Calendar.getInstance());
+	}
+
+	public Leilao(String descricao, Calendar data) {
 		this.descricao = descricao;
+		this.data = data;
 		this.lances = new ArrayList<Lance>();
 	}
 
@@ -18,7 +27,7 @@ public class Leilao {
 		if (isNotTheSameUserFromLastLance(lance.getUsuario()) && isUserWithLessThanFiveLances(lance.getUsuario()))
 			lances.add(lance);
 	}
-	
+
 	public Lance getLastLance() {
 		return lances.get(lances.size() - 1);
 	}
@@ -42,11 +51,32 @@ public class Leilao {
 	private boolean isUserWithLessThanFiveLances(Usuario usuario) {
 		int total = 0;
 
-		for(Lance lance : lances) {
-			if(lance.getUsuario().equals(usuario)) total++;
+		for (Lance lance : lances) {
+			if (lance.getUsuario().equals(usuario))
+				total++;
 		}
-		
+
 		return total < 5;
 	}
-	
+
+	public Calendar getData() {
+		return (Calendar) data.clone();
+	}
+
+	public void encerra() {
+		encerrado = true;
+	}
+
+	public boolean isEncerrado() {
+		return encerrado;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

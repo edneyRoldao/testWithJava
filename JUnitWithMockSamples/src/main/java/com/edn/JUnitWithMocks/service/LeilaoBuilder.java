@@ -1,8 +1,8 @@
-package com.edn.JUnitTestSamples.service;
+package com.edn.JUnitWithMocks.service;
 
-import com.edn.JUnitTestSamples.model.Lance;
-import com.edn.JUnitTestSamples.model.Leilao;
-import com.edn.JUnitTestSamples.model.Usuario;
+import com.edn.JUnitWithMocks.model.Lance;
+import com.edn.JUnitWithMocks.model.Leilao;
+import com.edn.JUnitWithMocks.model.Usuario;
 
 public class LeilaoBuilder {
 

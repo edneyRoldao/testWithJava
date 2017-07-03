@@ -1,11 +1,11 @@
-package com.edn.JUnitTestSamples.service;
+package com.edn.JUnitWithMocks.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.edn.JUnitTestSamples.model.Lance;
-import com.edn.JUnitTestSamples.model.Leilao;
+import com.edn.JUnitWithMocks.model.Lance;
+import com.edn.JUnitWithMocks.model.Leilao;
 
 public class Avaliador {
 

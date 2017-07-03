@@ -1,4 +1,4 @@
-package com.edn.JUnitTestSamples.model;
+package com.edn.JUnitWithMocks.model;
 
 public class Usuario {
 

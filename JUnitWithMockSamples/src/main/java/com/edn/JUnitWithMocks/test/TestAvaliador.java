@@ -1,9 +1,9 @@
-package com.edn.JUnitTestSamples.test;
+package com.edn.JUnitWithMocks.test;
 
-import com.edn.JUnitTestSamples.model.Lance;
-import com.edn.JUnitTestSamples.model.Leilao;
-import com.edn.JUnitTestSamples.model.Usuario;
-import com.edn.JUnitTestSamples.service.Avaliador;
+import com.edn.JUnitWithMocks.model.Lance;
+import com.edn.JUnitWithMocks.model.Leilao;
+import com.edn.JUnitWithMocks.model.Usuario;
+import com.edn.JUnitWithMocks.service.Avaliador;
 
 public class TestAvaliador {
 
