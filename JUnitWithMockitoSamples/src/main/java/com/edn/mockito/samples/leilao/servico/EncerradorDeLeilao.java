@@ -1,11 +1,11 @@
-package br.com.caelum.leilao.servico;
+package com.edn.mockito.samples.leilao.servico;
 
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.caelum.leilao.dominio.Leilao;
-import br.com.caelum.leilao.infra.dao.Carteiro;
-import br.com.caelum.leilao.infra.dao.RepositorioLeilao;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.infra.dao.Carteiro;
+import com.edn.mockito.samples.leilao.infra.dao.RepositorioLeilao;
 
 public class EncerradorDeLeilao {
 

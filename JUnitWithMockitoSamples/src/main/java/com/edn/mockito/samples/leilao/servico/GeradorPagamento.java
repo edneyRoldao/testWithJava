@@ -1,14 +1,14 @@
-package br.com.caelum.leilao.servico;
+package com.edn.mockito.samples.leilao.servico;
 
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.caelum.leilao.dominio.Leilao;
-import br.com.caelum.leilao.dominio.Pagamento;
-import br.com.caelum.leilao.infra.dao.RepositorioLeilao;
-import br.com.caelum.leilao.infra.dao.RepositorioPagamento;
-import br.com.caelum.leilao.infra.relogio.Relogio;
-import br.com.caelum.leilao.infra.relogio.RelogioSistema;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.dominio.Pagamento;
+import com.edn.mockito.samples.leilao.infra.dao.RepositorioLeilao;
+import com.edn.mockito.samples.leilao.infra.dao.RepositorioPagamento;
+import com.edn.mockito.samples.leilao.infra.relogio.Relogio;
+import com.edn.mockito.samples.leilao.infra.relogio.RelogioSistema;
 
 public class GeradorPagamento {
 

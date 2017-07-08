@@ -5,5 +5,5 @@ import com.edn.mockito.samples.leilao.dominio.Leilao;
 public interface Carteiro {
 
 	void envia(Leilao leilao);
-	
+
 }

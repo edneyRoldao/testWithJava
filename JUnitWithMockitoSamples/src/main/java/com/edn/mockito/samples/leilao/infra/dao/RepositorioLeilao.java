@@ -1,8 +1,8 @@
-package br.com.caelum.leilao.infra.dao;
+package com.edn.mockito.samples.leilao.infra.dao;
 
 import java.util.List;
 
-import br.com.caelum.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
 
 public interface RepositorioLeilao {
 	

@@ -1,12 +1,12 @@
-package br.com.caelum.leilao.builder;
+package com.edn.mockito.samples.leilao.builder;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.caelum.leilao.dominio.Lance;
-import br.com.caelum.leilao.dominio.Leilao;
-import br.com.caelum.leilao.dominio.Usuario;
+import com.edn.mockito.samples.leilao.dominio.Lance;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.dominio.Usuario;
 
 public class CriadorDeLeilao {
 
@@ -19,12 +19,12 @@ public class CriadorDeLeilao {
 		this.data = Calendar.getInstance();
 		lances = new ArrayList<Lance>();
 	}
-	
+
 	public CriadorDeLeilao para(String descricao) {
 		this.descricao = descricao;
 		return this;
 	}
-	
+
 	public CriadorDeLeilao naData(Calendar data) {
 		this.data = data;
 		return this;
@@ -42,9 +42,11 @@ public class CriadorDeLeilao {
 
 	public Leilao constroi() {
 		Leilao leilao = new Leilao(descricao, data);
-		for(Lance lanceDado : lances) leilao.propoe(lanceDado);
-		if(encerrado) leilao.encerra();
-				
+		for (Lance lanceDado : lances)
+			leilao.propoe(lanceDado);
+		if (encerrado)
+			leilao.encerra();
+
 		return leilao;
 	}
 

@@ -1,9 +1,9 @@
-package br.com.caelum.leilao.infra.dao;
+package com.edn.mockito.samples.leilao.infra.dao;
 
-import br.com.caelum.leilao.dominio.Pagamento;
+import com.edn.mockito.samples.leilao.dominio.Pagamento;
 
 public interface RepositorioPagamento {
 
 	void salva(Pagamento pagamento);
-	
+
 }

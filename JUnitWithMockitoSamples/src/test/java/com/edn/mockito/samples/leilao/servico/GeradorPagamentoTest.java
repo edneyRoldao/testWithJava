@@ -1,26 +1,25 @@
-package br.com.caelum.leilao.servico;
+package com.edn.mockito.samples.leilao.servico;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.Calendar;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-import br.com.caelum.leilao.builder.CriadorDeLeilao;
-import br.com.caelum.leilao.dominio.Leilao;
-import br.com.caelum.leilao.dominio.Pagamento;
-import br.com.caelum.leilao.dominio.Usuario;
-import br.com.caelum.leilao.infra.dao.RepositorioLeilao;
-import br.com.caelum.leilao.infra.dao.RepositorioPagamento;
-import br.com.caelum.leilao.infra.relogio.Relogio;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-
-import java.util.Arrays;
-import java.util.Calendar;
+import com.edn.mockito.samples.leilao.builder.CriadorDeLeilao;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.dominio.Pagamento;
+import com.edn.mockito.samples.leilao.dominio.Usuario;
+import com.edn.mockito.samples.leilao.infra.dao.RepositorioLeilao;
+import com.edn.mockito.samples.leilao.infra.dao.RepositorioPagamento;
+import com.edn.mockito.samples.leilao.infra.relogio.Relogio;
 
 public class GeradorPagamentoTest {
 
@@ -69,28 +68,26 @@ public class GeradorPagamentoTest {
 
 	@Test
 	public void deveLevarProximoDiaUtilQuandoFimDeSemana() {
-		Leilao leilao = new CriadorDeLeilao()
-				.para("Sony vaio")
-				.lance(new Usuario("Giselle"), 3200.00)
-				.lance(new Usuario("Marjorie"), 2100.00)
-				.constroi();
+		Leilao leilao = new CriadorDeLeilao().para("Sony vaio").lance(new Usuario("Giselle"), 3200.00)
+				.lance(new Usuario("Marjorie"), 2100.00).constroi();
 
 		when(leilaoDao.encerrados()).thenReturn(Arrays.asList(leilao));
-		
+
 		Calendar sabado = Calendar.getInstance();
 		sabado.set(2012, Calendar.APRIL, 7);
-		
+
 		when(relogio.hoje()).thenReturn(sabado);
 
 		GeradorPagamento gerador = new GeradorPagamento(leilaoDao, new Avaliador(), pagamentoDao, relogio);
 		gerador.gera();
-		
+
 		ArgumentCaptor<Pagamento> pagamento = ArgumentCaptor.forClass(Pagamento.class);
 		verify(pagamentoDao).salva(pagamento.capture());
-		
+
 		Pagamento pagtoGerado = pagamento.getValue();
-		
+
 		assertThat(pagtoGerado.getData().get(Calendar.DAY_OF_WEEK), equalTo(Calendar.MONDAY));
+		assertThat(pagtoGerado.getData().get(Calendar.DAY_OF_MONTH), equalTo(9));
 	}
 
 }

@@ -1,12 +1,12 @@
-package br.com.caelum.leilao.servico;
+package com.edn.mockito.samples.leilao.servico;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import br.com.caelum.leilao.dominio.Lance;
-import br.com.caelum.leilao.dominio.Leilao;
+import com.edn.mockito.samples.leilao.dominio.Lance;
+import com.edn.mockito.samples.leilao.dominio.Leilao;
 
 public class Avaliador {
 
@@ -15,16 +15,18 @@ public class Avaliador {
 	private List<Lance> maiores;
 
 	public void avalia(Leilao leilao) {
-		
-		if(leilao.getLances().size() == 0) {
-			throw new RuntimeException("N‹o Ž poss’vel avaliar um leil‹o sem lances!");
+
+		if (leilao.getLances().size() == 0) {
+			throw new RuntimeException("nao e possivel avaliar um leilao sem lances!");
 		}
-		
-		for(Lance lance : leilao.getLances()) {
-			if(lance.getValor() > maiorDeTodos) maiorDeTodos = lance.getValor();
-			if (lance.getValor() < menorDeTodos) menorDeTodos = lance.getValor();
+
+		for (Lance lance : leilao.getLances()) {
+			if (lance.getValor() > maiorDeTodos)
+				maiorDeTodos = lance.getValor();
+			if (lance.getValor() < menorDeTodos)
+				menorDeTodos = lance.getValor();
 		}
-		
+
 		tresMaiores(leilao);
 	}
 
@@ -33,8 +35,10 @@ public class Avaliador {
 		Collections.sort(maiores, new Comparator<Lance>() {
 
 			public int compare(Lance o1, Lance o2) {
-				if(o1.getValor() < o2.getValor()) return 1;
-				if(o1.getValor() > o2.getValor()) return -1;
+				if (o1.getValor() < o2.getValor())
+					return 1;
+				if (o1.getValor() > o2.getValor())
+					return -1;
 				return 0;
 			}
 		});
@@ -44,11 +48,11 @@ public class Avaliador {
 	public List<Lance> getTresMaiores() {
 		return maiores;
 	}
-	
+
 	public double getMaiorLance() {
 		return maiorDeTodos;
 	}
-	
+
 	public double getMenorLance() {
 		return menorDeTodos;
 	}

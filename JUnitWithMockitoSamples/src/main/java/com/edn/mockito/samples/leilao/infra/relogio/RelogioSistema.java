@@ -1,4 +1,4 @@
-package br.com.caelum.leilao.infra.relogio;
+package com.edn.mockito.samples.leilao.infra.relogio;
 
 import java.util.Calendar;
 

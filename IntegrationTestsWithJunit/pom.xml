@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.edn.mockito.samples</groupId>
-	<artifactId>JUnitWithMockitoSamples</artifactId>
+	<groupId>com.edn.junit.integration</groupId>
+	<artifactId>IntegrationTestsWithJunit</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>JUnitWithMockitoSamples</name>
+	<name>IntegrationTestsWithJunit</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -17,7 +17,7 @@
 
 	<build>
 		<!-- war file name -->
-		<finalName>JUnitWithMockito</finalName>
+		<finalName>JUnitIntegrationTest</finalName>
 		<plugins>
 
 			<!-- Setting up JDK 1.8 as default version -->
@@ -43,6 +43,17 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.1.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.9</version>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
