@@ -7,7 +7,7 @@
 	<groupId>com.edn</groupId>
 	<artifactId>JUnitSamples</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
   
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -16,40 +16,14 @@
 	</properties>
 
 	<build>
-		<!-- war file name -->
 		<finalName>JUnitSamples</finalName>
 		<plugins>
-		
-			<!-- Setting up JDK 1.8 as default version -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
-			<!-- avoiding web.xml error -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-			
-			<!-- Command: jetty:run (externally: mvn jetty:run) -->
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.11.v20150529</version>
-				<configuration>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<httpConnector>
-						<port>8085</port>
-					</httpConnector>
 				</configuration>
 			</plugin>
 		</plugins>	
