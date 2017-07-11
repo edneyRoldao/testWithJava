@@ -1,0 +1,25 @@
+<div class="jumbotron">
+	<h3> {{app}} </h3>
+	<form name="contatoForm">
+		<input type="text" class="form-control" name="nome" ng-model="contato.nome" ng-required="true" ng-minLength="3" ng-maxLength="20" placeholder="name">
+		<div class="alert alert-danger" ng-show="contatoForm.nome.$error.required && contatoForm.nome.$dirty"> 
+			The field nome must be filled 
+		</div>
+		<div class="alert alert-danger" ng-show="contatoForm.nome.$error.maxlength"> 
+			The field nome must have at maximum 20 characters
+		</div>
+		<div class="alert alert-danger" ng-show="contatoForm.nome.$error.minlength"> 
+			The field nome must have at least 3 characters 
+		</div>
+		<input type="text" class="form-control" name="telefone" ng-model="contato.telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" placeholder="phone">
+		<div class="alert alert-danger" ng-show="contatoForm.telefone.$invalid && contatoForm.telefone.$dirty"> 
+			You must insert just numbers in this field. <br/> either this way DDDDD-DDDD <br/> or this way DDDD-DDDD 
+		</div>
+		<input type="text" class="form-control" name="data" ng-model="contato.data" ng-required="true" placeholder="date" date-mask-directive>
+		<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras" ng-required="true">
+			<option value="">Phone's vendor</option>
+		</select>
+		<button class="btn btn-primary btn-block" ng-click="add(contato)" ng-disabled="contatoForm.$invalid">Add contact</button>		
+	</form>
+	<a class="btn btn-success btn-block" href="#/contatos">Contacts list</a>
+</div>

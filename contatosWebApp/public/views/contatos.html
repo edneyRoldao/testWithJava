@@ -1,0 +1,48 @@
+<div class="jumbotron">
+	<accordion-parent-directive>
+		<accordion-directive title="Frontend details">
+			<ul class="list-group" style="margin-left: 10px">
+				<li>AngularJS</li>
+				<li>Bootstrap</li>
+				<li>Bower</li>
+			</ul>	
+		</accordion-directive>
+		<accordion-directive title="Backend details">
+			<ul class="list-group" style="margin-left: 10px">
+				<li>Java - JDK 1.8</li>
+				<li>Spring (Framework, Data, MVC, RestTemplate)</li>
+				<li>Apache Maven</li>
+				<li>Apache Tomcat 7 embedded</li>
+			</ul>	
+		</accordion-directive>			
+	</accordion-parent-directive>
+
+	<h3> {{app}} </h3>
+	<ui-erro-msg ng-if="!!contatosError" title="Ops !" message="contatosError"></ui-erro-msg>
+	<ui-erro-msg ng-if="!!operadorasError" title="Ops !" message="operadorasError"></ui-erro-msg>
+
+	<input type="text" style="margin-top: 10px" ng-model="searchCriteria" class="form-control" placeholder="What are you searching ?">
+	<table class="table">
+		<tr>
+			<th></th>
+			<th>Serial</th>
+			<th> <a href="" ng-click="sortBy('nome')">Nome</a> </th>
+			<th> <a href="" ng-click="sortBy('telefone')">Telefone</a> </th>
+			<th>Operadora</th>
+			<th>Data</th>
+		</tr>
+		<tr ng-class="{'selectStyle strongStyle': contato.selected}" ng-repeat="contato in contatos | filter:{nome: searchCriteria} | orderBy:criteriaSort:changeOrder">
+			<td> <input type="checkbox" ng-model="contato.selected"/> </td>
+			<td> {{contato.serial}} </td>
+			<td>
+				<a href="#/detalhesContato/{{contato.id}}"> {{ contato.nome | nameFormatFilter | ellipsisFilter:20 }} </a>
+			</td>
+			<td> {{contato.telefone}} </td>
+			<td> {{contato.operadora.nome}} </td>
+			<td> {{contato.data | date:'dd/MM/yyyy' }} </td>
+		</tr>			
+	</table>
+	<br/>
+	<a class="btn btn-primary btn-block" href="#/novoContato">New Contact</a>
+	<button class="btn btn-danger btn-block" ng-click="remove(contatos)" ng-if="isContatoSelected(contatos)">Remove contact</button>
+</div>

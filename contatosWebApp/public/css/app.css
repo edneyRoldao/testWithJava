@@ -1,0 +1,51 @@
+.jumbotron {
+	width: 600px;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.table {
+	margin-top: 20px;
+}
+
+.table th {
+	text-align: center;
+}
+
+.form-control {
+	width: 570px;
+	margin-bottom: 5px;
+	margin-right: 15px;
+	margin-left: 15px;
+}		
+
+.btn {
+	width: 570px;
+	margin-bottom: 5px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.selected {
+	background-color: yellow;
+}
+
+.strongest {
+	font-weight: bold;
+}
+
+.selectStyle {
+	background-color: yellow;
+}
+
+.strongStyle {
+	font-weight: bold;
+}
+
+.footer {
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}

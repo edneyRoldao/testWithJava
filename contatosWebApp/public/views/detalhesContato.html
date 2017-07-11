@@ -1,0 +1,19 @@
+<div class="jumbotron">
+	<h3> {{app}} </h3>
+	<table class="table">
+		<tr>
+			<td> {{contato.id}} </td>
+		</tr>
+		<tr>
+			<td> {{ contato.nome | nameFormatFilter | ellipsisFilter:20 }} </td>
+		</tr>
+		<tr>
+			<td> {{contato.telefone}} </td>
+		</tr>
+		<tr>
+			<td> {{contato.data | date:"dd/MM/yyyy"}} </td>
+		</tr>		
+	</table>
+	<br/>
+	<a class="btn btn-primary btn-block" href="#/contatos">Turn back</a>
+</div>
