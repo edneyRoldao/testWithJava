@@ -16,10 +16,10 @@
 			You must insert just numbers in this field. <br/> either this way DDDDD-DDDD <br/> or this way DDDD-DDDD 
 		</div>
 		<input type="text" class="form-control" name="data" ng-model="contato.data" ng-required="true" placeholder="date" date-mask-directive>
-		<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras" ng-required="true">
+		<select class="form-control" name="opera" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras" ng-required="true">
 			<option value="">Phone's vendor</option>
 		</select>
-		<button class="btn btn-primary btn-block" ng-click="add(contato)" ng-disabled="contatoForm.$invalid">Add contact</button>		
+		<button name="addContato" class="btn btn-primary btn-block" ng-click="add(contato)" ng-disabled="contatoForm.$invalid">Add contact</button>		
 	</form>
 	<a class="btn btn-success btn-block" href="#/contatos">Contacts list</a>
 </div>
